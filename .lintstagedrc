@@ -1,0 +1,6 @@
+{
+  "*.{js,mjs,ts}": ["npm run prettier", "npm run eslint"],
+  "*.css": ["npm run prettier", "npm run stylelint"],
+  "*.{js,mjs,ts,css,php,html}": ["npm run check-spelling"],
+  "*.php": ["npm run prettier", "npm run phplint"]
+}

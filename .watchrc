@@ -1,0 +1,5 @@
+{
+  "*.{js,ts}": ["npm run build:js"],
+  "*.css": ["npm run build:css"],
+  "*.php": ["npm run build:php"]
+}

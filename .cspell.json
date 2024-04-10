@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "dictionaries": [
+    "en_US",
+    "companies",
+    "softwareTerms",
+    "misc",
+    "typescript",
+    "node",
+    "html",
+    "css",
+    "fonts",
+    "filetypes",
+    "npm",
+    "custom"
+  ],
+  "words": [],
+  "dictionaryDefinitions": [
+    {
+      "name": "custom",
+      "path": "./.cspell/dict.dic",
+      "addWards": true
+    }
+  ],
+  "ignorePaths": ["node_modules/**", "dist/**", "vendor/**"]
+}
