@@ -4,7 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 export default {
   input: 'src/scripts/index.ts',
   output: {
-    dir: 'dist',
+    dir: 'dist/assets/css',
     format: 'es',
   },
   plugins: [
