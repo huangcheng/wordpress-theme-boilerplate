@@ -27,7 +27,11 @@ watcher.on('change', (path) => {
       const commands = config[pattern];
 
       for (const command of commands) {
-        execSync(command, { stdio: 'inherit' });
+        try {
+          execSync(command, { stdio: 'inherit' });
+        } catch (error) {
+          console.error(error);
+        }
       }
     }
   }
