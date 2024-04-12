@@ -1,16 +1,16 @@
-import prettier from 'eslint-plugin-prettier';
+import prettier from 'eslint-config-prettier';
 import tailwindcss from 'eslint-plugin-tailwindcss';
-import typescript from 'eslint-config-typescript';
+import typescript from 'typescript-eslint';
 import unicorn from 'eslint-plugin-unicorn';
 
 export default [
+  prettier,
+  unicorn.configs['flat/recommended'],
+  ...typescript.configs.recommended,
   {
     files: ['**/**/*.{js,mjs,ts}'],
     plugins: {
-      typescript,
-      prettier,
       tailwindcss,
-      unicorn,
     },
   },
   {

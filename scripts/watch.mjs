@@ -1,35 +1,34 @@
-import { dirname } from 'node:path';
+import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
 
 import chokidar from 'chokidar';
 import { minimatch } from 'minimatch';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
-const root = resolve(__dirname, '..');
+const root = path.resolve(__dirname, '..');
 
 const config = JSON.parse(
-  readFileSync(resolve(__dirname, '..', '.watchrc'), 'utf-8'),
+  readFileSync(path.resolve(__dirname, '..', '.watchrc'), 'utf8'),
 );
 
-const watcher = chokidar.watch(resolve(__dirname, '..', 'src'), {});
+const watcher = chokidar.watch(path.resolve(__dirname, '..', 'src'), {});
 
 process.chdir(root);
 
 watcher.on('change', (path) => {
-  const extension = path.split('.').pop();
+  const keys = Object.keys(config);
 
-  Object.keys(config).forEach((pattern) => {
+  for (const pattern of keys) {
     if (minimatch(path, pattern, { matchBase: true })) {
       const commands = config[pattern];
 
-      commands.forEach((command) => {
+      for (const command of commands) {
         execSync(command, { stdio: 'inherit' });
-      });
+      }
     }
-  });
+  }
 });

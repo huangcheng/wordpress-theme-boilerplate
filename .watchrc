@@ -1,5 +1,6 @@
 {
   "*.{js,ts}": ["npm run build:js"],
   "*.css": ["npm run build:css"],
-  "*.php": ["npm run build:php"]
+  "*.php": ["npm run build:php", "npm run build:css"],
+  "assets/**/*": ["npm run build:assets"]
 }

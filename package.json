@@ -15,7 +15,8 @@
     "build:css": "postcss ./src/styles/index.css -o ./dist/style.css",
     "build:js": "rollup -c",
     "build:php": "cpy 'src/**/*.php' dist",
-    "build": "rimraf dist && npm run build:css && npm run build:js && npm run build:php",
+    "build:assets": "cpy 'src/assets/**/*' dist",
+    "build": "rimraf dist && npm run build:css && npm run build:js && npm run build:php && npm run build:assets",
     "watch": "node ./scripts/watch.mjs",
     "prepare": "husky"
   },
@@ -37,8 +38,7 @@
     "cspell": "^8.7.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.0.0",
-    "eslint-config-typescript": "^3.0.0",
-    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-tailwindcss": "^3.15.1",
     "eslint-plugin-unicorn": "^52.0.0",
     "fast-glob": "^3.3.2",
@@ -54,6 +54,7 @@
     "stylelint-config-recommended": "^14.0.0",
     "stylelint-config-tailwindcss": "^0.0.7",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.6.0"
   }
 }
