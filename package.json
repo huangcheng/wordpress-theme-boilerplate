@@ -15,7 +15,7 @@
     "build:css": "postcss ./src/styles/index.css -o ./dist/style.css",
     "build:js": "rollup -c",
     "build:php": "cpy 'src/**/*.php' dist",
-    "build:assets": "cpy 'src/assets/**/*' dist",
+    "build:assets": "cpy 'src/assets/**/*' dist/assets",
     "build": "rimraf dist && npm run build:css && npm run build:js && npm run build:php && npm run build:assets",
     "watch": "node ./scripts/watch.mjs",
     "prepare": "husky"
